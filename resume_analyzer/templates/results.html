@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Analysis</title>
+</head>
+<body>
+    <h1>Resume Match Analysis</h1>
+    <p><strong>Score (out of 100):</strong> {{ resume.score }}</p>
+    <p><strong>Feedback for {{resume.name}}:</strong></p>
+    <p>{{ resume.feedback }}</p>
+    <a href="{% url 'upload_resume' %}">Upload another resume</a>
+</body>
+</html>

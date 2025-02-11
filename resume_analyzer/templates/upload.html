@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Resume</title>
+    <style>
+        /* Styling for the loading spinner */
+        .spinner {
+            display: none;
+            width: 24px;
+            height: 24px;
+            border: 4px solid #ccc;
+            border-top: 4px solid #333;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload Your Resume and Paste Job Description</h1>
+    <form method="post" enctype="multipart/form-data" onsubmit="disableSubmitButton()">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" id="submit-button">Match</button>
+        <div class="spinner" id="spinner"></div>
+    </form>
+
+    <script>
+        function disableSubmitButton() {
+            document.getElementById("submit-button").disabled = true; // Can only submit once
+            document.getElementById("spinner").style.display = "inline-block"; // Show spinner
+        }
+    </script>
+</body>
+</html>
