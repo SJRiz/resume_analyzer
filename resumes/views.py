@@ -17,7 +17,6 @@ def upload_resume(request):
         resume = form.save()
         text = get_pdf_text(resume.file.path)
         feedback, score = analyze_resume(text, resume.job_description)
-        print(feedback, score)
 
         # Save ai responses to database
         resume.score = score
