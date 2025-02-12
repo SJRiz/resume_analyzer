@@ -8,7 +8,7 @@ class Resume(models.Model):
     file = models.FileField(upload_to='resumes/PDFs/')
     job_description = models.TextField()
 
-    # Score and feedback will be filled through Google Gemini
+    # Score and feedback will be filled through DeepSeek's AI
     score = models.FloatField(null=True, blank=True)
     feedback = models.TextField(blank=True, null=True)
 
