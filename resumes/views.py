@@ -16,11 +16,12 @@ def upload_resume(request):
         # Save name and file to database
         resume = form.save()
         text = get_pdf_text(resume.file.path)
-        feedback, score = analyze_resume(text, resume.job_description)
+        feedback, score, summary = analyze_resume(text, resume.job_description)
 
         # Save ai responses to database
         resume.score = score
         resume.feedback = feedback
+        resume.summary = summary
         resume.save()
 
         # Send them to the results page, which will have their unique resume ID
