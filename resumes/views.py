@@ -11,7 +11,7 @@ def upload_resume(request):
 
     # If they filled out the required fields then get ready to analyze
     if form.is_valid():
-        print("user submitted")
+        print(request)
 
         # Save name and file to database
         resume = form.save()
@@ -29,9 +29,9 @@ def upload_resume(request):
     
     # This will be called if the user just visited the page
     else:
-        print("user visited")
-        form = ResumeUploadForm()
-        return render(request, 'upload.html', {'form': form})
+        print(request)
+        #form = ResumeUploadForm()
+        return render(request, 'upload.html', {})
         
 
 # Results page. They can also click "upload another resume" to go back to the upload page

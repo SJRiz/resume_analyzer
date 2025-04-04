@@ -13,5 +13,6 @@ class Resume(models.Model):
     feedback = models.TextField(blank=True, null=True)
     summary = models.TextField(blank=True, null=True)
 
+    # The resume data will be seen as the name in the database
     def __str__(self):
         return self.name
