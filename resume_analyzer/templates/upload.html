@@ -6,20 +6,30 @@
     <link rel="stylesheet" type="text/css" href="{% static 'resumes/upload.css' %}">
 </head>
 <body>
-    <h1>Upload Your Resume and Paste Job Description</h1>
-    <form method="post" enctype="multipart/form-data" onsubmit="disableSubmitButton()">
-        {% csrf_token %}
-        <p>Name: </p>
-        <textarea name="name" rows="1" cols="25"></textarea>
-        <br>
-        <br>
-        Resume: <input type="file" name="file">
-        <p>Job Description: </p>
-        <textarea name="job_description" rows="15" cols="100"></textarea>
-        <br>
-        <button type="submit" id="submit-button">Match</button>
-        <div class="spinner" id="spinner"></div>
-    </form>
+    <div class="header">
+        <h1>Upload Your Resume and Paste Job Description</h1>
+    </div>
+    <div class="textPart">
+        <form method="post" enctype="multipart/form-data" onsubmit="disableSubmitButton()">
+            {% csrf_token %}
+            <p>Name:</p>
+            <textarea name="name" rows="1" cols="25"></textarea>
+            <br>
+            <br>
+            <label for="file-upload" class="custom-file-upload">
+                📎 Upload Resume
+            </label>
+            <input id="file-upload" type="file" name="file" />
+            <br>
+            <br>
+            <p>Job Description: </p>
+            <textarea name="job_description" rows="15" cols="100"></textarea>
+            <br>
+            <br>
+            <button type="submit" id="submit-button">Match</button>
+            <div class="spinner" id="spinner"></div>
+        </form>
+    </div>
     <script src="{% static 'resumes/upload.js' %}"></script>
 </body>
 </html>
